@@ -8,7 +8,7 @@ ENV RUNTIME_DEPS oracle-java7-installer
 RUN apt-get install -y software-properties-common --no-install-recommends && \
     add-apt-repository -y ppa:webupd8team/java && \
     apt-get update  && \
-    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections && \
+    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
     apt-get install -y $BUILD_DEPS $RUNTIME_DEPS --no-install-recommends && \
     git clone https://github.com/pinterest/secor.git && \
     cd secor && mvn clean package && cd .. && \
